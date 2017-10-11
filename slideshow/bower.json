@@ -1,0 +1,20 @@
+{
+  "name": "slideshow",
+  "homepage": "https://github.com/jigang-duan/laughing-octo-train",
+  "authors": [
+    "jigang.duan <jigang.duan@tcl.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "impress-js": "impress.js#^0.6.0"
+  }
+}

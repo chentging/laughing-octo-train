@@ -1,0 +1,409 @@
+<!doctype html>
+
+<!--
+
+    初学者，欢迎来的源码的页面.
+
+    你将一步一步学习有趣的东西...
+
+                               ____
+                            _.' :  `._
+                        .-.'`.  ;   .'`.-.
+               __      / : ___\ ;  /___ ; \      __
+             ,'_ ""=-.:__;".-.";: :".-.":__;.-="" _`,
+             :' `.t""=-.. '<@.`;_  ',@:` ..-=""j.' `;
+                  `:-.._J '-.-'L__ `-.-' L_..-;'
+                    "-.__ ;  .-"  "-.  : __.-"
+                        L ' /.======.\ ' J
+                         "-.   "__"   .-"
+                        __.l"-:_JL_;-";.__
+                     .-j/'.;  ;""""  / .'\"-.
+                   .' /:`. "-.:     .-" .';  `.
+                .-"  / ;  "-. "-..-" .-"  :    "-.
+             .+"-.  : :      "-.__.-"      ;-._   \
+             ; \  `.; ;                    : : "+. ;
+             :  ;   ; ;                    : ;  : \:
+             ;  :   ; :                    ;:   ;  :
+            : \  ;  :  ;                  : ;  /  ::
+            ;  ; :   ; :                  ;   :   ;:
+            :  :  ;  :  ;                : :  ;  : ;
+            ;\    :   ; :                ; ;     ; ;
+            : `."-;   :  ;              :  ;    /  ;
+             ;    -:   ; :              ;  : .-"   :
+             :\     \  :  ;            : \.-"      :
+              ;`.    \  ; :            ;.'_..-=  / ;
+              :  "-.  "-:  ;          :/."      .'  :
+               \         \ :          ;/  __        :
+                \       .-`.\        /t-""  ":-+.   :
+                 `.  .-"    `l    __/ /`. :  ; ; \  ;
+                   \   .-" .-"-.-"  .' .'j \  /   ;/
+                    \ / .-"   /.     .'.' ;_:'    ;
+                     :-""-.`./-.'     /    `.___.'
+                           \ `t  ._  /
+                            "-.t-._:'
+
+-->
+
+<!--
+
+    你想知道如何使用impress.js吗?
+
+    你已经迈出了重要的第一步 - 您正在阅读源代码.
+    指导如果使用HTML和CSS代码创建impress.js演示文稿.
+
+    相信我，你需要很不错的HTML和CSS技能才能有效地使用impress.js.
+    更重要的是，你需要成为一名设计师. impress.js演示文稿没有默认样式或布局.
+
+    你需要先手工设计.
+
+    所以...
+
+    你还想知道如何使用impress.js吗?
+
+-->
+
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=1024" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <title>import.js | 演示工具 - 基于现代浏览器上CSS3转换和过渡效果 </title>
+
+  <meta name="description" content="impress.js是基于现代浏览器上CSS3转换和过渡效果的演示工具" />
+  <meta name="author" content="Bartek Szopka" />
+
+  <link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet" />
+
+  <!--
+
+      Impress.js不依赖任何外部样式. 它为演示工作添加了所需的所有样式.
+
+      下面的样式包含的样式仅为了示例演示.
+      浏览它看看impress.js classes是如果使用演示的steps样式，或如果应用fallback样式,
+      但我不建议直接在你但演示文稿中使用.
+
+      制作你自己的创意. 我们真不希望所有的impress.js演示文稿看起来都一样.
+
+      创建自己的演示文稿时，可以摆脱这个文件.从头开始，很有趣!
+
+  -->
+  <link href="bower_components/impress-js/css/impress-demo.css" rel="stylesheet" />
+
+  <link rel="shortcut icon" href="bower_components/impress-js/favicon.png" />
+  <link rel="apple-touch-icon" href="bower_components/impress-js/apple-touch-icon.png" />
+</head>
+
+<!--
+
+    impress.js为Body元素设置了一些有用的类名，用于检测CSS和scripts中演示文稿的支持和状态.
+
+    第一个非常有名的类名是`impress-not-supported`. 这个类意味着, 浏览器不支持impress.js所需的特性,
+    你应该在你的CSS中应用一些fallback样式.
+    没有必要手动添加它. 如果script检测浏览器支持的不够好它会添加这个类,
+    但在HTML中保持着它意味着没有JavaScript也能获取fallback样式.
+
+    当impress.js script检测到浏览器支持所有必需的特性时，这个类名将会被删除.
+
+    body元素上的类名还取决于当前活动的呈现步骤.更多细节
+    稍后可以找到`hint`元素描述的时候.
+
+-->
+<body class="impress-not-supported">
+
+  <!--
+      例如这个后备消息只有在body上有`impress-not-supported`类时才可见的.
+  -->
+<div class="fallback-message">
+  <p>你的浏览器 <b>不支持impress.js所需的功能</b>,因此你看到的是此演示文稿的简化版本.</p>
+  <p>为获得最佳体验，请使用最新版的<b>Chrom</b>,<b>Safari</b>或<b>Firefox</b>.
+</div>
+
+<!--
+
+    现在这是使用impress.js的核心元素.
+
+    它包装你的演示步骤. 所有的impress.js魔法发生在在这个元素中.
+    它不一定是`<div>`. 只是`id`在这里很重要,脚本需要找到它.
+
+    在此元素上还可以设置的一些可选配置选项.
+
+    要更改幻灯片之间转换的持续时间，请使用`data-transition-duration="2000"` 单位ms. 默认为 1000 (1s).
+
+    你还可以控制透视,使用`data-perspective="500"` 单位pixels.
+    默认为 1000. 如果你不想要任何3D效果，你可以将其设置为0.
+    如果你想更改此值，请确保你了解CSS透视的工作原理:
+    https://developer.mozilla.org/en/CSS/perspective
+
+    你现在可以不需要它，所有别担心 - 有一些简单但有趣的事情
+    就在这个标签的拐角处 ;)
+
+-->
+<div id="impress">
+
+  <!--
+
+      有趣的事情在这里开始发生.
+
+      演示文稿的每一步都应该是有`step`类名的`#impress`元素.
+      这些step元素被impress.js定位, 旋转和缩放,
+      'camera' 显示出演示文档中的每一步.
+
+      定位信息通过数据属性传递.
+
+      在下面的例子中,我们只指定step元素中的x 和 y 位置,使用`data-x="-1000"`
+      和 `data-y="-1500"` 元素. 这意味着这个元素的**中心r** (对, 中心)
+      将位于演示文稿'画布' x = -1000px 和 y = -1500px 的点.
+
+      它不会旋转或缩放.
+
+  -->
+  <div id="bored" class="step slide" data-x="-1000" data-y="-1500">
+    <q>你 是否 觉得幻灯片的演示效果，都很<b>无聊</b>呢？</q>
+  </div>
+
+  <!--
+
+      step元素的`id`属性被用在URL中标识它, 但它是可选的.
+      如果没有定义, 它将获得默认值`step-N`, N是幻灯片数.
+
+      所以在下面的例子中，它将是`step-2`.
+
+      当此step处于活跃状态时，url的hash部分将是`#/step-2`.
+
+      你还可以在链接中使用`#step-2`, 直接指向这特定的step.
+
+      请注意, 虽然`#/step-2` (用斜线) 也可以在链接中工作，但不推荐.
+      使用经典`id`的链接，如`#step-2`，使得这些链接也可以在回退模式下使用.
+
+  -->
+  <div class="step slide" data-x="0" data-y="-1500">
+    <q>你不认为<strong>现代的浏览器</strong>给出的演示效果不应该<strong>受复制限制</strong>吗?</p>
+  </div>
+
+  <div class="step slide" data-x="1000" data-y="-1500">
+      <q>你想用<strong>惊人的视觉效果</strong>给你的听众留下<strong>深刻的印象</strong>吗?</q>
+  </div>
+
+  <!--
+
+      这是一个被缩放的step元素的例子.
+
+      再者, 我们使用`data-`属性, 这次是`data-scale="4"`, 所以意味着这个元素将比其它元素大4倍.
+      从演示和转换的角度来看，这意味着它必须被缩放
+      下降（4次）,使其恢复到正确的大小.
+
+  -->
+  <div id="title" class="step" data-x="0" data-y="0" ata-scale="4">
+    <span class="try">那么你应该尝试</span>
+    <h1>impress.js<sup>*</sup></h1>
+    <span class="footnote"><sup>*</sup> 不准备押韵</span>
+  </div>
+
+  <!--
+
+      此元素引入旋转.
+
+      符号不应该是个惊喜. 我们使用`data-rotate="90"` 属性, 意味着这个
+      元件应顺时针旋转90度.
+
+  -->
+  <div id="its" class="step" data-x="850" data-y="3000" data-rotate="90" data-scale="5">
+      <p>这是一个 <strong>演示工具</strong> <br/>
+      背后的思想 启发于 <a href="http://prezi.com">prezi.com</a> <br/>
+      并基于 <strong>CSS3转换和过渡的特性</strong> 在现代浏览器中.</p>
+  </div>
+
+  <div id="big" class="step" data-x="3500" data-y="2100" data-rotate="180" data-scale="6">
+      <p>可视化你的 <b>大</b> <span class="thoughts">想法</span></p>
+  </div>
+
+  <!--
+
+      现在它真的很激动! 我们进入第三维!
+
+      与`data-x` 和 `data-y`, 您可以在第三（Z）轴上定义位置, 使用
+      `data-z`. 在下面的例子中, 我们使用 `data-z="-3000"` 这个元素应该是
+      远离我们 (3000px).
+
+  -->
+  <div id="tiny" class="step" data-x="2825" data-y="2325" data-z="-3000" data-rotate="300" data-scale="1">
+      <p>和 <b>小</b> 主意</p>
+  </div>
+
+  <!--
+
+      这个步骤在数据属性方面没有引入任何新的内容, 但是你
+      应该在演示中注意到这个文本的某些单词是动画的.
+      这是一个非常基本的CSS转换, 适用于此步骤元素的元素到达.
+
+      在演示的开始, 所有的step元素都被赋予了`future`类.
+      这意味着他们还没有访问过.
+
+      当演示文稿移动到给定的step `future`被改为`present`类名时.
+      这就是这个step上的动画如何工作 - 当步骤具有`present`类时，文本移动.
+
+      最后当步骤离开时，`present`类从元素和'过去'中被移除添加了类.
+
+      所以基本上每一步元素都有三个类之一:`future`,`present`和`past`.
+      只有一个当前步骤有`present`类.
+
+  -->
+  <div id="ing" class="step" data-x="3500" data-y="-850" data-rotate="270" data-scale="6">
+      <p>通过 <b class="positioning">定位</b>, <b class="rotating">旋转</b> 和 <b class="scaling">缩放</b> 它们在无限画布上</p>
+  </div>
+
+  <div id="imagination" class="step" data-x="6700" data-y="-300" data-scale="6">
+      <p>唯一的 <b>限制</b> 是你的 <b class="imagination">想象力</b></p>
+  </div>
+
+  <div id="source" class="step" data-x="6300" data-y="2000" data-rotate="20" data-scale="4">
+      <p>想了解更多?</p>
+      <q><a href="http://github.com/bartaz/impress.js">请看源码</a>, 亲!</q>
+  </div>
+
+  <div id="one-more-thing" class="step" data-x="6000" data-y="4000" data-scale="2">
+      <p>还有一件事...</p>
+  </div>
+
+  <!--
+
+      最后一个显示了强大的功能和灵活性.
+
+      您不仅可以将元素放置在3D中，还可以围绕任何轴旋转.
+      所以这里的一个将绕X轴旋转-40度（逆时针40度）
+      绕Y轴10度（顺时针）.
+
+      当然，你可以用“data-rotate-z”把它绕Z轴旋转一下 - 它具有完全相同的效果
+      作为“数据旋转”（这两个基本上是别名）.
+
+  -->
+  <div id="its-in-3d" class="step" data-x="6200" data-y="4300" data-z="-100" data-rotate-x="-40" data-rotate-y="10" data-scale="2">
+      <p><span class="you">你</span><span class="have">是否</span> <span class="noticed">注意到</span> <span class="its">它是</span> <span class="in">所处在</span> <b>3D<sup>*</sup></b>?</p>
+      <span class="footnote">* 击掌, ✌️ ;)</span>
+  </div>
+
+  <!--
+
+      为了总结用于定位演示步骤的所有可能的属性，我们有:
+
+      * `data-x`, `data-y`, `data-z` - 它们定义了step元素的**中心**的位置;
+      * `data-rotate-x`, `data-rotate-y`, 'data-rotate-z`, `data-rotate` - 它们定义了
+            给定轴周围的元素以度为单位; 默认值为0; `data-rotate` 和 `data-rotate-z`
+          完全一样;
+      * `data-scale` - 定义step元素的大小; 默认值为1
+
+      这些值在CSS转换函数中由impress.js使用，因此有关更多信息，请参阅
+      CSS transfrom docs: https://developer.mozilla.org/en/CSS/transform
+
+  -->
+  <div id="overview" class="step" data-x="3000" data-y="1500" data-scale="10">
+  </div>
+
+</div>
+
+<!--
+
+    提示,不以任何方式与impress.js相关.
+
+    但它可以向您展示如何以创造性的方式使用impress.js功能.
+
+    当step显示(被选择)时,其元素获得"active"类,
+    body元素获得基于活动step的id `impress-on-ID` (ID是step的id)...
+    所以例如当第一个step (`bored` id的那一个) 是活跃的,
+    body元素获得`impress-on-bored`类.
+
+    下面使用hint类. 查看CSS文件, 可以看到它显示使用延时的CSS动画 当
+    第一个是活跃的时.
+
+    ...
+
+    而下面的JavaScript片段 ... 请, 不要这样做 ;)
+    为触摸设备获取不同的提示文本，在这里只使用了一个快速而肮脏的解决方法.
+    在现实世界中,它至少应该放在单独的JS文件中 ... 触摸内容应该是
+    可能只是隐藏在HTML的某个地方 - 脚本中不要有硬编码.
+
+    你说对吗' ;)
+
+-->
+<div class="hint">
+    <p>使用空格键或箭头键导航</p>
+</div>
+<script>
+if ("ontouchstart" in document.documentElement) {
+    document.querySelector(".hint").innerHTML = "<p>使用空格键或箭头键导航</p>";
+}
+</script>
+
+<!--
+
+    最后,但非常最重要.
+
+    为了使上述所有内容真正有效工作, 您需要在页面中包含impress.js.
+    我强烈建议先把它缩小.
+
+    在这里,我只包括脚本的完整来源,使其更易于阅读.
+
+    Y您还需要调用一个`impress().init()` 函数来初始化impress.js演示文稿.
+    你应该在文档的末尾做. 不仅因为这是一个很好的做法, 而且也是
+    因为当整个文件准备就绪时应该完成.
+    当然,您可以将其包装在任何类型的“DOM ready”事件中，但我太懒了 ;)
+
+-->
+<script src="bower_components/impress-js/js/impress.js"></script>
+<script>impress().init();</script>
+
+<!--
+
+    `impress()` 函数也可以访问控制演示文稿的API.
+
+    只需保存调用结果:
+
+        var api = impress();
+
+    你可以调用三个函数:
+
+        `api.init()` - 初始化演示文稿,
+        `api.next()` - 移动到演示文稿的下一步,
+        `api.prev()` - moves to previous step of the presentation,
+        `api.goto( stepIndex | stepElementId | stepElement, [duration] )` - 移动到演示文稿指定step通过索引号id
+                或DOM元素; 第二个参数可用于定义以ms为单位的转换持续时间,
+                它是可选的 - 如果没有提供, 将使用演示文稿的默认转换持续时间.
+
+    你也可以简单地调用`impress()`来获取API, `impress().next()` 也是允许的.
+    不要担心, 它不会再次初始化演示文稿.
+
+    对于这个API的一些例子,请检查一下源码的最后一部分。在事件处理程序中使用API.
+
+-->
+
+<!--
+
+    现在，您或多或少知道建立第一个impress.js演示文稿时需要的所有内容,
+    但开始之前...
+
+    哦，你已经克隆了GitHub的代码?
+
+    你在文本编辑器中打开它?
+
+    停在那儿!
+
+    这不是你如何创建令人敬畏的演示文稿. 这只是一个代码.
+    这个想法的实现首先需要在你心目中成长.
+
+    所以如果你想建立一个很好的演示文稿，请用一张铅笔和一张纸.并关闭电脑.
+
+    素描,画画,写.集思广益.尝试建立一个你想要的心态地图
+    展示. 它会让你更接近你的布局,随后用impress.js构建它.
+
+    只有当您的演示文稿准备就绪时,才能回到代码. 早些时候它没有意义,
+    因为你只会浪费你的时间与无用点的定位战斗.
+
+    如果你觉得我很疯狂, 请把你的手放在一本叫做"Presentation Zen"的书上. 这全都是关于
+    创造出令人敬畏的演讲.
+
+    想想吧. 'impress.js 可能无法帮助你, 如果没有什么有趣的话.
+
+-->
+
+</body>
+</html>
