@@ -5,3 +5,5 @@
 [资料书签](./书签.md)
 
 [30 天学习 30 种新技术系列](https://segmentfault.com/a/1190000000349384)
+
+[slideshow](./slideshow/index.html)
