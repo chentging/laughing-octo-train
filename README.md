@@ -7,3 +7,7 @@
 [30 天学习 30 种新技术系列](https://segmentfault.com/a/1190000000349384)
 
 [slideshow](./slideshow/index.html)
+
+## MySQL
+
+[01讲基础架构：一条SQL查询语句是如何执行的](./mysql/mysql-actions-36/html/01讲基础架构：一条SQL查询语句是如何执行的.html)
