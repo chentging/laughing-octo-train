@@ -20,6 +20,8 @@
 
 [ink](https://github.com/vadimdemedes/ink) React 交互式命令行应用程序
 
+开放的CLI框架 [oclif](https://oclif.io) 创建用户喜欢的命令行工具
+
 [Node.js CLI 工具最佳实践](https://mp.weixin.qq.com/s/DwDw0vShAqegXCoAVpZPJQ)
 
 [gcli_](https://www.npmjs.com/package/@aikin/gcli_) 是一个可快速构建出 Node.js 交互式命令行应用脚手架生成器
