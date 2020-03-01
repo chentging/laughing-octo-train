@@ -8,6 +8,8 @@
 
 [slideshow](./slideshow/index.html)
 
+[GitHub中文排行榜](https://github.com/kon9chunkit/GitHub-Chinese-Top-Charts#Go)
+
 ## MySQL
 
 [01讲基础架构：一条SQL查询语句是如何执行的](./mysql/mysql-actions-36/html/01讲基础架构：一条SQL查询语句是如何执行的.html)
